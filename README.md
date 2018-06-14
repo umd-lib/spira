@@ -1,3 +1,36 @@
+# Spira UMD-Fork
+The spira repository is forked to provide a version of the gem with the fix for
+[spira #48][issue-48] issue. Once that issue is resolved and a version of the
+gem with the fix is released, the UMD-fork can be removed.
+
+
+## Using the UMD version
+The umd version of the gem will be deployed to the UMD Nexus. 
+
+1. Configure the gem source to include the UMD Nexus rubygems group
+```
+gem sources --add https://maven.lib.umd.edu/nexus/content/groups/umd-ruby-gems-repository-group/
+
+# Or declare it as a source in Gemfile
+source 'https://maven.lib.umd.edu/nexus/content/groups/umd-ruby-gems-repository-group/'
+
+```
+2. Use the `gem install` command or list the gem in the `Gemfile` or `gemspec` file.
+
+## UMD Versions
+See the [releases](./releases) tab for tags that include a fouth sequence 
+(E.g. `3.0.0.1` - `3.0.0` in the spira version  and `1` is the umd sub-version).
+
+## Deploying to Nexus
+1. Build the gem
+```
+gem build spira.gemspec
+```
+2. Follow the instructions at [UMD Nexus Ruby Gems][umd-nexus] to push to nexus.
+
+[issue-48]: https://github.com/ruby-rdf/spira/issues/48
+[umd-nexus]: https://confluence.umd.edu/display/LIB/UMD+Nexus+Ruby+Gems
+
 # Spira [![Build Status](https://travis-ci.org/ruby-rdf/spira.png?branch=develop)](http://travis-ci.org/ruby-rdf/spira) [![Coverage Status](https://coveralls.io/repos/ruby-rdf/spira/badge.png?branch=develop)](https://coveralls.io/r/ruby-rdf/spira) [![Code Climate](https://codeclimate.com/github/ruby-rdf/spira.png)](https://codeclimate.com/github/ruby-rdf/spira) [![Dependency Status](https://gemnasium.com/ruby-rdf/spira.png)](https://gemnasium.com/ruby-rdf/spira)
 
 It's time to breathe life into your linked data.
